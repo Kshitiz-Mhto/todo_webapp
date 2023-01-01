@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Kam-Samal</title>
+         <link rel="stylesheet" type="text/css" href="{% static 'workstyle.css' %}">
+    </head>
+    <body> 
+        <header>
+             <!-- Side navigation -->
+            <div class="sidenav">
+              <a href="/workspaceHome/{{user}}" class="btn" id="ahome">Home</a>
+              <a href="/workspaceTask/{{user}}" class="btn" id ="atask">Tasks</a>
+              <a href="/workspaceStat/{{user}}" class="btn" id ="astat">Stats</a>
+            </div>
+        </header>    
+        <div class="main">
+            <div class="msg">
+                <h1>
+                    <ion-icon name="rocket-outline"></ion-icon>&ensp;<b>Welcome {{user}}!!</b>
+                </h1>
+                <h4 style="color: gray;"> Welcome to your workspace.</h4>
+                <hr>
+            </div>
+            <div class="services">
+                <h2>
+                    <b>Services we provide<b><span id="dot">...</span>
+                </h2>
+                <hr>
+                <div class="serviceBox">
+                     <div class="flex-containeri">
+                      <div>
+                        <ion-icon name="planet"></ion-icon>
+                          <h3>Task creation</h3>
+                          <hr>
+                          <h4>Users can create new tasks and add details.</h4>
+                      </div>
+                      <div>
+                        <ion-icon name="planet"></ion-icon>
+                          <h3>Task organization</h3>
+                          <hr>
+                          <h4>Allow users to organize tasks into different categories.</h4>
+                      </div>
+                      <div>
+                        <ion-icon name="planet"></ion-icon>
+                          <h3>Reminders</h3>
+                          <hr>
+                          <h4>Offer reminder features that can send notifications to users.</h4>
+                      </div>
+                      <div>
+                        <ion-icon name="planet"></ion-icon>
+                        <h3>Customization</h3>
+                        <hr>
+                        <h4>Offer options such as the ability to change the layout or appearances.</h4>
+                      </div>
+                    </div>              
+                </div>
+            </div>
+
+        </div> 
+
+    <footer>
+            <hr style="width: 3px;">
+            <div class="flex-container">
+                <div id="r1footer">
+                    <img  id="logo"src="{% static 'assets/todo-logo.png'  %}"/><br>
+                    <h4 style="color: grey;">Join millions of people who organize work and life with Kam-Samal</h4>
+                </div>
+              <div id="r12footer">
+                <h3 style="color: grey;"><b>&ensp;&ensp;&ensp;Contact: </b></h3><br>
+                    &ensp;<a class="social-icon" href="https://www.facebook.com/manish.cdhy1" target="_blank">
+                        <ion-icon name="logo-facebook"> FaceBook</ion-icon>    
+                    </a>
+                    &nbsp;<a class="social-icon" href="https://github.com/Kshitiz-Mhto" target="_blank">
+                        <ion-icon name="logo-github"> Github</ion-icon>
+                    </a>
+                    &nbsp;<a class="social-icon" href="https://www.linkedin.com/in/kshitiz-mahato-825110241/" target="_blank">
+                        <ion-icon name="logo-linkedin"> Linkedin</ion-icon>
+                    </a>
+                </div>  
+            </div> 
+
+        </footer>
+
+    {% comment %} <script type="text/javascript" src="{% static 'workspace.js'%}.js"></script> {% endcomment %}
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kam-Samal</title>
+    <link rel="icon" href="{% static 'assets/todo-logo.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css"/>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300&family=Changa:wght@200&display=swap');
+    </style> 
+</head>
+<body> 
+    <div class="while">
+        <header>
+            <div class="w3-contianer w3-margin w3-large">
+                 <div class="topnav">
+                        <a>
+                            <span style="font-size:40px;cursor:pointer"onclick="openNav()"> &#9776;</span>
+                        </a>
+                        <a href='/'>
+                            <img src="{% static 'assets/todo-logo.png' %}" alt="logo" style="width: 85px; padding-top: 5px;">
+                        </a>
+                        <div class="topnav-right">
+                            <a href="login" style="padding-top:20px; ">Log in</a>&ensp;&ensp;
+                            <a href="entry" style="padding-top:20px; ">Signup for free</a>
+                        
+                    </div>               
+                </div> 
+            </div>
+
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="#">Services</a>
+                <a href="#news">News</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </div>
+        </header>
+        <section>
+            <div class="centerPage">
+                <h1><b> Organize your work and life, finally!</b></h1><br>
+                <h2>Become focused, organized, and calm with Kam-Samal. <br>The world’s #1 task manager and to-do list app.</h2><br>
+                <a href="entry"><button class="w3-buttons"><b>Get started</b></button></a> 
+            </div>
+        </section>
+    </div>
+    {% comment %} </div> {% endcomment %}
+{% block content %}
+
+{% endblock content %}
+    
+<footer>
+        <hr style="width: 3px;">
+        <div class="flex-container">
+            <div id="r1footer">
+                <img  id="logo"src="{% static 'assets/todo-logo.png' %}"/><br>
+                <h4 style="color: grey;">Join millions of people who organize work and life with Kam-Samal</h4>
+            </div>
+          <div id="r12footer">
+            <h3 style="color: grey;"><b>&ensp;&ensp;&ensp;Contact: </b></h3><br>
+                &ensp;<a class="social-icon" href="https://www.facebook.com/manish.cdhy1" target="_blank">
+                    <ion-icon name="logo-facebook"> FaceBook</ion-icon>    
+                </a>
+                &ensp;<a class="social-icon" href="https://github.com/Kshitiz-Mhto" target="_blank">
+                    <ion-icon name="logo-github"> Github</ion-icon>
+                </a>
+                &ensp;<a class="social-icon" href="https://www.linkedin.com/in/kshitiz-mahato-825110241/" target="_blank">
+                    <ion-icon name="logo-linkedin"> Linkedin</ion-icon>
+                </a>
+            </div>  
+        </div> 
+
+    </footer>
+
+    
+<script type="text/javascript" src="{% static 'main.js' %}"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>

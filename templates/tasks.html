@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Kam-Samal</title>
+         <link rel="stylesheet" type="text/css" href=" {% static 'task.css' %}">
+    </head>
+    <body> 
+        <header>
+            <div class="sidenav">
+              <a href="/workspaceHome/{{user}}" class="btn">Home</a>
+              <a href="/workspaceTask/{{user}}" class="btn">Tasks</a>
+              <a href="#w" class="btn">Stats</a>
+            </div>
+        </header>    
+        <div class="main">
+            <p>
+                <h2 id="title">
+                    <b  id="usernamep">{{user}}</b>
+                    <b><i>Task</i> can be added below<span  id="dot">..</span>
+                </h2>
+                <hr>
+            </p>
+            <div class="tasks">
+                <button class="w3-button w3-green" onclick="document.getElementById('id01').style.display='block'">Add_Tasks</button>
+                <hr>
+                <div class="taslList" >
+                    <div class="w3-container">
+                        <table id="center" class="w3-table-all">
+                            <thead>
+                                <tr class="w3-blue">
+                                    <th>Title_id</th>
+                                    <th>Title</th>
+                                    <th>Is_Completed</th>
+                                    <th>Choices</th>
+                                </tr>
+                            </thead>
+                            {% for x in tasks %}
+                            <tr>
+                                <td>x.title_id</td>
+                                <td>x.title</td>
+                                <td>
+
+                                    <input class="w3-check" type="checkbox"  name="options" value="True" checked="checked"><label for='true'>True</label> &ensp;
+                                    <input class="w3-check" name="options" value="False" type="checkbox"><label for='false'>False</label>
+
+                                </td>
+                                <td>
+                                    <a href="workspace/taskDelete/{{x.title_id}}" ><button class="w3-button w3-red">Delete</button></a>&ensp;<a onclick="document.getElementById('id011').style.display='block'"><button class="w3-button w3-green">Edit</button></a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="id01" class="modal">
+                <span onclick="document.getElementById('id01').style.display='none'"
+            class="close" title="Close Modal">&times;</span>
+                <!-- Modal Content -->
+              <form class="modal-content animate" id='editform' method="POST">
+                {% csrf_token %}
+                <div class="imgcontainer">
+                  <img src="todo-logo.png" alt="Avatar" class="avatar">
+                </div>
+
+                <div class="container">
+
+                  <label id="form" for="title_id"><ion-icon name="trophy"></ion-icon>&nbsp;<b>Title_id</b></label>
+                  <input type="text" id="title_id" placeholder="Enter Task Title_id" name="title_id" required>
+                  <label id="form" for="title"><ion-icon name="trophy"></ion-icon>&nbsp;<b>Title</b></label>
+                  <input type="text" id="titlename" placeholder="Enter Task Title" name="title" required>
+                  <label id="form" for="details"><ion-icon name="document"></ion-icon>&nbsp;<b>Details</b></label>
+                  <input type="text" id="detailname" placeholder="Enter Details about your Task" name="detail" required>
+                  <button class="w3-button w3-orange" type="submit">Save</button>
+                </div>
+              </form>
+            </div>
+
+        </div> 
+
+        <footer>
+            <hr style="width: 3px;">
+            <div class="flex-container">
+                <div id="r1footer">
+                    <img  id="logo"src="{% static 'todo-logo.png' %}"/><br>
+                    <h4 style="color: grey;">Join millions of people who organize work and life with Kam-Samal</h4>
+                </div>
+              <div id="r12footer">
+                <h3 style="color: grey;"><b>&ensp;&ensp;&ensp;Contact: </b></h3><br>
+                    &ensp;<a class="social-icon" href="https://www.facebook.com/manish.cdhy1" target="_blank">
+                        <ion-icon name="logo-facebook"> FaceBook</ion-icon>    
+                    </a>
+                    &nbsp;<a class="social-icon" href="https://github.com/Kshitiz-Mhto" target="_blank">
+                        <ion-icon name="logo-github"> Github</ion-icon>
+                    </a>
+                    &nbsp;<a class="social-icon" href="https://www.linkedin.com/in/kshitiz-mahato-825110241/" target="_blank">
+                        <ion-icon name="logo-linkedin"> Linkedin</ion-icon>
+                    </a>
+                </div>  
+            </div> 
+
+        </footer>
+
+    <script type="text/javascript" src="{% static 'task.js' %}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    </body>
+</html>

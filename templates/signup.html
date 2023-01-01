@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap');
+    </style>
+    <link rel="stylesheet" type="text/css" href="{% static 'signupi.css' %}"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'user-logo.png' %}"/>
+	<title>Sign up</title>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <form id="signupform" action="/user_created" method="POST">
+                {% csrf_token %}
+                <div class="box">
+                    <p>
+                        <img src="{% static 'assets/user-logo.png' %}">
+                        <div id="alertsuccess">  
+                            <strong>Successfully Registered!!</strong>
+                        </div>
+                    </p>
+                    <div id='posi'>
+                        &ensp;<ion-icon name="person-outline"></ion-icon>
+                        <label for="fullname">Fullname</label>
+                    </div>
+                    <input required type="text" name="fullname" placeholder="Enter your full name"><br><br>
+                    <br>
+                    <div id='posi'>
+                        &ensp;<ion-icon name="finger-print-outline"></ion-icon>
+                        <label for="username">Username</label>
+                    </div>
+                    <input required type="text" name="username" placeholder="Enter your Username"><br><br>
+                    <br>
+                    <div id='posi'>
+                        &ensp;<ion-icon name="finger-print-outline"></ion-icon>
+                        <label for="email">email</label>
+                    </div><br>
+                    <input  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required type="email" name="email" placeholder="Enter your Email"><br><br>
+                    <div id='posi'>
+                        &ensp;<ion-icon name="lock-closed-outline"></ion-icon>
+                        <label for="password">Password</label>
+                    </div>
+                    <input required type="password" name="password" placeholder="Enter your Password"><br>
+                    <button id="signup" type="submit" onclick="validateMsg()"><b>SignUp</b></button>
+                    <p id="login">
+                        You have an account?
+                         <a href="login">
+                            <strong> LogIn here</strong>
+                        </a>
+                    </p>
+                </div>
+            </form>
+
+        </div>
+    </main>
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js">	
+	 </script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">
+	</script>
+    <script type="text/javascript" src="{% static 'signup.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'login.css' %}"/>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap');</style>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/todo-login.png' %}"/>
+	<title>Log in</title>
+</head>
+<body>
+    <main>
+        <div class="containerlogin">
+                <form id="loginform" method="POST" >
+                    {% csrf_token %}
+                <div class="box">
+                        <img style="padding-bottom: 8px; width: 100px;" src="{% static 'assets/user-logo.png' %}">
+                        <h4 style="color:orange">{{msg}}</h4>
+                    <div id='posi'>
+                        &ensp;<ion-icon name="finger-print-outline"></ion-icon>
+                        <label for="name">Username</label>
+                    </div>
+                    <input required type="text" name="username" id="username" value ="{{username}}" placeholder="Enter your Username">
+                    <br><br>
+                    <div>       
+                    </div>
+                    <br>
+                    <div id='posi'>
+                        &ensp;<ion-icon name="lock-closed-outline"></ion-icon>
+                        <label for="password">Password</label>
+                    </div>
+                    <input required type="password" value="{{password}}" name="password" placeholder="Enter your Password">
+                    <button id="login" type="submit"><b>LogIn</b></button>
+                    <p id="signup">
+                        dont't have an account?
+                         <a href="entry">
+                                <b> SignUp </b>
+                        </a>
+                    </p>
+                </div>
+            </form>
+
+        </div>
+    </main>
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js">	
+	 </script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">
+	</script>
+    <script type="text/javascript" src="{% static 'login.js' %}"></script>
+</body>
+</html>
