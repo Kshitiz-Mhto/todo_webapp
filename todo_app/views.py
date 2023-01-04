@@ -61,8 +61,7 @@ def taskSaved(request, username):
     title_id = request.POST['title_id']
     title = request.POST['title']
     detail = request.POST['detail']
-    obj = Todo_app_userTask.objects.create(username=username,id=title_id,title=title, detail = detail, is_complete=False)
-    print(obj.title_id, obj.title, obj.detail, username)
+    obj = Todo_app_userTask.objects.create(title_id=title_id,title=title, detail = detail, is_complete=False)
     if obj:
         x.save()
     time.sleep(1)
