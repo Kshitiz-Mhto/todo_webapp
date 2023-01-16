@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Todo_app,Todo_app_userTask
+from .models import Todo_app,userTask
 import time
 # Create your views here.
 
@@ -53,7 +53,7 @@ def workspaceHome(request,username):
     return render(request,'workspace.html', {'user':username})
 
 def workspaceTask(request,username):
-    tasks = Todo_app_userTask.objects.all()
+    tasks = userTask.objects.all()
     if (tasks.exists()):
         return render(request,'tasks.html', {'user':username, 'tasks':tasks})
     return render(request,'tasks.html', {'user':username})
@@ -61,18 +61,20 @@ def taskSaved(request, username):
     title_id = request.POST['title_id']
     title = request.POST['title']
     detail = request.POST['detail']
-    obj = Todo_app_userTask.objects.create(title_id=title_id,title=title, detail = detail, is_complete=False)
+    obj = userTask.objects.create(title_id=title_id,title=title, detail = detail)
     if obj:
-        x.save()
+        obj.save()
     time.sleep(1)
-    tasks = Todo_app_userTask.objecs.all()
+    tasks = userTask.objects.all()
+    for x in tasks:
+        print(x)
     return render(request,'tasks.html', {'user':username, 'tasks':tasks})
 
 def taskDelete(request, title_id):
-    obj = Todo_app_userTask.objecs.get(title_id)
+    obj = userTask.objecs.get(title_id)
     obj.delete()
     return redirect('/wrokspaceTask/'+ obj.username)
 
 def taskEdit(request, title_id):
-    obj = Todo_app_userTask.objecs.get(title_id)
-    return redirect('/wrokspaceTask/'+ obj.username)
+    obj = userTask.objecs.get(title_id)
+    return redirect('/wrokspaceTask/')

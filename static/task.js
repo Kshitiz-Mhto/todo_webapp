@@ -24,6 +24,6 @@ document.getElementById('detailform').addEventListener('submit', function(event)
 // document.getElementById('editform').addEventListener('submit', function(event) {
 //   event.preventDefault();
 //   var title_id = document.getElementById('title_id').value;
-//   this.action = '/workspace/taskEdit/' + title_id
+//   this.action = '/workspaceTask/tasSaved/' + title_id
 //   this.submit();
 // });

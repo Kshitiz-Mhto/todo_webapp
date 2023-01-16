@@ -15,18 +15,17 @@ class Todo_app(models.Model):
         self.email = email
         self.password = password
 
-class Todo_app_userTask(models.Model):
-    user = models.ForeignKey(Todo_app, on_delete=models.CASCADE, default="")
-    title_id = models.IntegerField()
+class userTask(models.Model):
+    title_id = models.IntegerField(primary_key=True)
     title = models.CharField(max_length=50, blank=False, null=False)
     detail = models.CharField(max_length=100, blank=False, null=False)
-    is_complete = models.BooleanField(default=False)
+    # is_complete = models.BooleanField(default=False)
     
     class Meta:
-        db_table= 'tasks'
-    def __init__(self,title_id,title,detail,is_complete):
-        super(Todo_app_userTask, self).__init__(self,title_id,title,detail,is_complete)
+        db_table= 'usertask'
+    def __init__(self,title_id,title,detail):
+        super(userTask, self).__init__(title_id,title,detail)
         self.title_id = title_id
         self.title = title
         self.detail = detail
-        self.is_complete = is_complete
+        # self.is_complete = is_complete
