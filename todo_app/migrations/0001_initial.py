@@ -23,14 +23,4 @@ class Migration(migrations.Migration):
                 'db_table': 'users',
             },
         ),
-        migrations.CreateModel(
-            name='Todo_user',
-            fields=[
-                ('username', models.CharField(max_length=20, primary_key=True, serialize=False)),
-                ('password', models.CharField(max_length=20)),
-            ],
-            options={
-                'db_table': 'logged_user',
-            },
-        ),
     ]
