@@ -71,10 +71,14 @@ def taskSaved(request, username):
     return render(request,'tasks.html', {'user':username, 'tasks':tasks})
 
 def taskDelete(request, title_id):
-    obj = userTask.objecs.get(title_id)
+    obj = userTask.objects.get(title_id)
     obj.delete()
-    return redirect('/wrokspaceTask/'+ obj.username)
+    tasks = userTask.objects.all()
+    if (tasks.exists()):
+        return render(request,'tasks.html', { 'tasks':tasks})
+    return render(request,'tasks.html')
 
 def taskEdit(request, title_id):
     obj = userTask.objecs.get(title_id)
+    
     return redirect('/wrokspaceTask/')
